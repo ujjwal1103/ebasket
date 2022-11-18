@@ -1,0 +1,11 @@
+.sidebar{
+
+    height: calc(100vh - 56px);
+    position: sticky;
+    top: 56px;
+    bottom: 0
+}
+
+.bg{
+    background-image: url("../assets/supermarket.webp");
+}
