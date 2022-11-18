@@ -9,7 +9,7 @@ const CartItem = ({item}) => {
     if(item.productId){
        axios.get(`http://localhost:8084/product/${item.productId}`).then(res=>{setproduct(res.data)})
     }
-  }, [])
+  }, [item.productId])
   
   
 

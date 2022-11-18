@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthService from "../services/auth.service";
 import EventBus from "../common/EventBus";
 import avatar from "../assets/man.png";
@@ -32,7 +32,7 @@ const Navbar = ({setQuery}) => {
     return () => {
       EventBus.remove("logout");
     };
-  }, [cartItemsCount]);
+  }, [logOut]);
 
   const logOut = () => {
     AuthService.logout();
@@ -49,7 +49,7 @@ const Navbar = ({setQuery}) => {
       {navbar && (
         <nav className="flex items-center w-full  mx-3 justify-between">
           <Link to={"/"} className="font-bold text-4xl text-blue-600 px-10 font-mono">
-            <img src={logo} className="w-52 transition-all duration-300 drop-shadow-md hover:scale-105 "/>
+            <img src={logo} alt="" className="w-52 transition-all duration-300 drop-shadow-md hover:scale-105 "/>
           </Link>
           {/* <div className="flex gap-2 px-4 ">
             {showAdminBoard && (
@@ -92,7 +92,7 @@ const Navbar = ({setQuery}) => {
                   }}
                   className="w-10 h-10 relative cursor-pointer "
                 >
-                  <img src={avatar} className="w-10" />
+                  <img src={avatar} alt="" className="w-10" />
 
                   <div
                     className={`absolute  bg-transparent right-1  w-60 py-10  top-3 ${

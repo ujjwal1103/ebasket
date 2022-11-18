@@ -1,12 +1,7 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BsFillCheckCircleFill } from "react-icons/bs";
-
 import landingImage from "../assets/vegitabless.png";
-
 import delivery from "../assets/deliveryvan.png";
-import image from "../assets/supermarket.webp";
 import logo from "../assets/elogo.png";
 import Category from "./Category";
 import bottomimage from "../assets/bottomimage.png";

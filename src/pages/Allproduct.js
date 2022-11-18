@@ -15,7 +15,7 @@ const Allproduct = ({query}) => {
   
   useEffect(() => {
     dispatch(fetchProducts())
-  }, []);
+  }, [dispatch]);
   
   const deleteItem = async (id) => {
     await axios.delete(`http://localhost:8084/products/${id}`);

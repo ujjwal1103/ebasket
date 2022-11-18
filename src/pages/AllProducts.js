@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../components/sidebar.css";
 import { fetchProducts } from "../redux/actions/productActions";
@@ -13,7 +13,7 @@ const Home = ({ query }) => {
 
   useEffect(() => {
     dispatch(fetchProducts());
-  }, []);
+  }, [dispatch]);
 
   console.log(products);
 

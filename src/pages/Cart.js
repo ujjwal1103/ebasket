@@ -17,7 +17,7 @@ const Cart = () => {
      dispatch(fetchCart(user.id));
      
     }
-  }, []);
+  }, [dispatch]);
 
   
 

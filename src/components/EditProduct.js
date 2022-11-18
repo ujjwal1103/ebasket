@@ -22,8 +22,8 @@ const EditProduct = ({setModal , currentProduct}) => {
             category:category, 
             description:description,
             price:price,
+            unit:unit,
             quantity:quantity,
-            price:price,
             image:img
           }
           await axios.put(`http://localhost:8084/product/edit/${currentProduct.id}`,product).then(()=>{alert("Product Updated SucessFully")
@@ -76,7 +76,7 @@ const EditProduct = ({setModal , currentProduct}) => {
             selection
             placeholder="category"
             value={category}
-            onChange={(e,result)=>setCategory(result.value)}
+            onChange={(result)=>setCategory(result.value)}
           />
         <Form.Input fluid label="Quantity" placeholder="quantity" onChange={e=>setQuantity(e.target.value)}/>
           <Form.Input fluid label="Unit" placeholder="unit" onChange={e=>setUnit(e.target.value)}/>

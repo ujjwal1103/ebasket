@@ -30,7 +30,7 @@ const BoardAdmin = () => {
 
   return (
     <div className="bg-slate-50 w-screen h-auto" >
-        <AddProductPage/>
+        <AddProductPage content={content}/>
     </div>
   );
 };

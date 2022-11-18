@@ -11,7 +11,7 @@ const SingleProduct = () => {
   const {id}= useParams()
   useEffect(() => {
       axios.get(`http://localhost:8084/product/${id}`).then(res=>{setproduct(res.data).catch(err=>{console.log(err)})})
-  }, [addquantity])
+  }, [id])
 
   const increment=()=>{
     if(addquantity >= 1 ) setQuantity(addquantity+=1)

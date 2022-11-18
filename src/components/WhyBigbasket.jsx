@@ -20,7 +20,7 @@ const WhyBigbasket = () => {
         </div>
       
         <div className='flex flex-col items-center justify-center'>
-          <img src={easyreturn} className='w-24 h-24'/>
+          <img src={easyreturn} alt="" className='w-24 h-24'/>
             <h5 className='font-semibold my-2'>
             Easy Returns
             </h5>

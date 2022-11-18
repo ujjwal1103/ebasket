@@ -15,7 +15,7 @@ const Products = ({query}) => {
   };
   useEffect(() => {
     loadAllProducts();
-  }, [category]);
+  }, [loadAllProducts]);
 
   return (
     <div className="flex ">

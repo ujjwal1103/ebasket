@@ -1,4 +1,4 @@
-import axios from "axios"
+
 import products from "../../apis/products"
 import { actionTypes } from "../constants/action-type"
 export const setProducts=(products)=>{
@@ -7,7 +7,7 @@ export const setProducts=(products)=>{
     payload:products
    }
 }
-export const fetchProducts=(query)=> async  (dispatch)=>{
+export const fetchProducts=()=> async  (dispatch)=>{
          const response = await products.get("/products");
          dispatch({type:actionTypes.FETCH_PRODUCTS,payload:response.data})
 }
