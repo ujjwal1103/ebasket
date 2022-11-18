@@ -26,7 +26,7 @@ const BoardUser = () => {
         }
       }
     );
-  }, []);
+  }, [content]);
 
   return (
     <div >

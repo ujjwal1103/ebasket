@@ -32,7 +32,7 @@ const CartItem = ({item}) => {
   }
   return (
     <div className="flex mb-3 bg-white gap-2 justify-between rounded-md items-center p-2">
-                  <img src={product?.image}  className="mx-8 border w-20 h-20" />
+                  <img src={product?.image} alt="" className="mx-8 border w-20 h-20" />
                   <span className="mx-3 w-52">{product?.title}</span>
                   <div className=" border-2 rounded-lg border-blue-800  bg-blue-800 text-white flex items-center  ">
                     <button

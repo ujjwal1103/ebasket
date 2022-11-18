@@ -16,6 +16,9 @@ const Navbar = ({setQuery}) => {
   const [menuActive, setMenuActive] = useState(false);
   const [cartItemsCount,setCartItemsCount] = useState(0);
   
+
+
+
   useEffect(() => {
     const user = AuthService.getCurrentUser();
     
@@ -32,7 +35,8 @@ const Navbar = ({setQuery}) => {
     return () => {
       EventBus.remove("logout");
     };
-  }, [logOut]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
 
   const logOut = () => {
     AuthService.logout();
@@ -40,7 +44,8 @@ const Navbar = ({setQuery}) => {
     setCurrentUser(undefined);
     setNavbar(true);
     navigate('/home')
-  };
+  }
+
   const search=()=>{
     navigate('/product')
   }

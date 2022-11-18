@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect ,useCallback } from "react";
 import Sidebar from "../components/Sidebar";
 import "../components/sidebar.css";
 import { useParams, Link } from "react-router-dom";
@@ -8,11 +8,13 @@ const Products = ({query}) => {
   
   const [product, setProduct] = useState([]);
   const { category } = useParams();
-  const loadAllProducts = async () => {
-    await axios
+  const loadAllProducts = useCallback(
+     async () => {
+    
+    const res = await axios
       .get(`http://localhost:8084/product/productbycategory/${category}`)
-      .then((res) => setProduct(res.data));
-  };
+      setProduct(res.data)
+  },[category])
   useEffect(() => {
     loadAllProducts();
   }, [loadAllProducts]);
