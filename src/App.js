@@ -14,8 +14,7 @@ import Allproduct from "./pages/Allproduct";
 import AllProducts from "./pages/AllProducts";
 import Cart from "./pages/Cart";
 import Products from "./pages/Products";
-import Sidebar from "./components/Sidebar";
-import Footer from "./components/Footer"
+
 import { fetchProducts } from "./redux/actions/productActions";
 import {useDispatch, useSelector} from 'react-redux'
 import './components/sidebar.css'
@@ -36,7 +35,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={< Home />} />
-          <Route path="/product" element={<AllProducts query={query} />} />
+          <Route path="/product" element={<AllProducts query={query} products={products}/>} />
           <Route path="/product/getcategory/:category" element={<Products query={query}/>} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />

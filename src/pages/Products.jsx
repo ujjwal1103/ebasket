@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 import "../components/sidebar.css";
 import { useParams, Link } from "react-router-dom";
-import Filter from '../components/Filter.jsx'
+
 const Products = ({query}) => {
   
   const [product, setProduct] = useState([]);

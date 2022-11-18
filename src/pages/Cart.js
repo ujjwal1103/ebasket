@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
+import {  useEffect } from "react";
 import { Scrollbars } from "react-custom-scrollbars-2";
-import axios from "axios";
+
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCart } from "../redux/actions/productActions";
 import AuthService from "../services/auth.service.js";
 import CartItem from "../components/CartItem.js";
-import { Link } from "react-router-dom";
+
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cart);
   
   const dispatch = useDispatch();
-  const [totalCartPrice,setTotalCartPrice] = useState(0)
+  
   useEffect(() => {
     let user = AuthService.getCurrentUser();
     if (user) {

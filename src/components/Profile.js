@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+
 import AuthService from "../services/auth.service";
 import axios from "axios";
 const Profile = () => {

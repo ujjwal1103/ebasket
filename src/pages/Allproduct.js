@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import {useDispatch, useSelector} from 'react-redux'
 import axios from "axios";
-// import { Tab, Table } from "semantic-ui-react";
-import {setProducts,fetchProducts} from '../redux/actions/productActions'
+
+import {fetchProducts} from '../redux/actions/productActions'
 import EditProduct from "../components/EditProduct";
 const Allproduct = ({query}) => {
-  // const [product, setProduct] = useState([]);
+
   const [currProduct, setcurrProduct] = useState();
   const [modal, setModal] = useState(false);
   

@@ -5,7 +5,7 @@ import { fetchProducts } from "../redux/actions/productActions";
 import Sidebar from "../components/Sidebar";
 import AddToCart from "../components/AddToCart";
 import { useDispatch, useSelector } from "react-redux";
-import Filter from "../components/Filter";
+
 
 const Home = ({ query }) => {
   const products = useSelector((state) => state.allProducts.products);
