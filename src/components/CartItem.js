@@ -19,15 +19,12 @@ const CartItem = ({item}) => {
         quantity:quantity,
         totalPrice:quantity*product.price
       }
-      
       console.log(cart)
-    
   }
 
   const deleteItem =async(id)=>{
-   await axios.delete(`http://localhost:8084/item/${id}`).then(()=>{alert("item deleted") 
-  })
-  
+   await axios.delete(`http://localhost:8084/item/${id}`).then(()=>{alert("item deleted")})
+   window.location.reload()
 
   }
   return (
@@ -41,6 +38,10 @@ const CartItem = ({item}) => {
                         if(quantity > 1 ){
                           setQuantity(pre=>pre-1)
                           updateItems(item.id)
+                        }
+                        else{
+                           axios.delete(`http://localhost:8084/item/${item.id}`).then(()=>{alert("item deleted")})
+                           window.location.reload()
                         }
                         
                       }}

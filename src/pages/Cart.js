@@ -1,6 +1,6 @@
 import {  useEffect } from "react";
 import { Scrollbars } from "react-custom-scrollbars-2";
-
+import {Link} from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCart } from "../redux/actions/productActions";
 import AuthService from "../services/auth.service.js";
@@ -15,14 +15,14 @@ const Cart = () => {
     let user = AuthService.getCurrentUser();
     if (user) {
      dispatch(fetchCart(user.id));
-     
+      
     }
-  }, [dispatch]);
+  }, []);
 
   
 
   return (
-    <div className=" flex  flex-col height w-[100%] mx-20">
+    <div className=" flex  flex-col  w-[100%] mx-20">
       <div className="flex items-center justify-between py-4 my-10 ">
         <h1 className="text-5xl font-bold font-sans">Grocery basket</h1>
         <span className="font-2xl">{cartItems?.length} Items in basket</span>
@@ -39,7 +39,8 @@ const Cart = () => {
             </div>
           <Scrollbars style={{ width: "100%", height: 300 }}>
             
-              {cartItems.length !== 0?(<div className="flex flex-col my-2">
+              {cartItems.length !== 0?(
+                <div className="flex flex-col my-2">
                 {cartItems?.map((item,index) => (
                   <CartItem item={item} key={index} />
                 ))}
@@ -47,7 +48,7 @@ const Cart = () => {
             
           </Scrollbars>
         
-          <div className="flex gap-3 items-center mx-12 py-4"><button className="bg-blue-600 py-3 px-2 text-white rounded ">Continue Shopping</button></div>
+          <div className="flex gap-3 items-center mx-12 py-4"><Link to='/product' className="bg-blue-600 py-3 px-2 text-white rounded hover:text-white">Continue Shopping</Link></div>
           
         </div>
         <div className=" flex flex-col justify-end w-[30%] p-4 border">

@@ -31,7 +31,7 @@ const BoardUser = () => {
   return (
     <div >
       <header >
-        <h3>Products</h3>
+        <h3>Orders</h3>
       </header>
     </div>
   );

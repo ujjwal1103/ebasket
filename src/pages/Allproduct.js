@@ -2,25 +2,21 @@ import React, { useState, useEffect } from "react";
 import {useDispatch, useSelector} from 'react-redux'
 import axios from "axios";
 
-import {fetchProducts} from '../redux/actions/productActions'
+import {deleteProduct, fetchProducts} from '../redux/actions/productActions'
 import EditProduct from "../components/EditProduct";
 const Allproduct = ({query}) => {
-
   const [currProduct, setcurrProduct] = useState();
-  const [modal, setModal] = useState(false);
-  
-
+  const [modal, setModal] = useState(false);  
   const products = useSelector((state)=> state.allProducts.products)
-  const dispatch = useDispatch()
-  
+  const dispatch = useDispatch() 
   useEffect(() => {
+    console.log("rendered");
     dispatch(fetchProducts())
   }, [dispatch]);
-  
   const deleteItem = async (id) => {
-    await axios.delete(`http://localhost:8084/products/${id}`);
+    dispatch(deleteProduct(id))
+    console.log("deleted"+ id)
   };
-
   return (
     <div className="flex flex-col height mt-10 ">
       <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">

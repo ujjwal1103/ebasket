@@ -1,8 +1,12 @@
 import React from 'react'
 import axios from 'axios'
 import AuthService from '../services/auth.service.js'
+
+
 const AddToCart = ({id,productQuantity,productPrice}) => {
 
+ 
+   
   const addToCart = async(id,productQuantity,productPrice)=>{
     
     let user = AuthService.getCurrentUser()
@@ -14,9 +18,10 @@ const AddToCart = ({id,productQuantity,productPrice}) => {
         totalPrice:productQuantity * productPrice
       }
      
-      await axios.post("http://localhost:8084/addtoCart",cartItem)
-      .then(()=>alert("product is added to cart"))
-      window.location.reload()
+      const res= await axios.post("http://localhost:8084/addtoCart",cartItem)
+      if(res){
+        window.location.reload()
+      }
     }
 
 
@@ -24,18 +29,16 @@ const AddToCart = ({id,productQuantity,productPrice}) => {
   }
 
   return (
-    <button className="rounded-tl-xl 
-                       rounded-tr-xl  
-                       mt-2 font-bold py-2 
-                       px-3 text-white
-                        bg-blue-500 
-                        text-center"
+    <>
+    <button
             onClick={()=>{
               addToCart(id,productQuantity,productPrice)
             }}
                         >
                       Add To Basket
     </button>
+    
+  </>
   )
 }
 

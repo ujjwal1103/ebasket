@@ -9,23 +9,23 @@ import "./sidebar.css";
 const Home = () => {
   return (
     <div className="flex-1 flex flex-col  relative p-10 home">
-      <div className=" bg-slate-600  w-full   rounded-3xl pt-20 ">
-        <div className=" bg-slakte-500">
-          <div className="rounded-full ml-16 flex items-center  w-96 bg-[#f3f3f35c] backdrop-opacity-20">
+      <div className=" bg-slate-600 dark:bg-slate-300  w-full   rounded-3xl pt-20 ">
+        <div className="">
+          <div className="rounded-full ml-16 flex items-center  w-96 bg-[#f3f3f35c] dark:bg-[#2a2a2a5c] backdrop-opacity-20">
             <img src={delivery} alt="" className="pl-4 w-12" />
-            <p className="tracking-widest p-2 pl-5 text-lg text-white">
+            <p className="tracking-widest p-2 pl-5 text-lg text-white dark:text-slate-700 ">
               {" "}
               free delivery
             </p>
           </div>
-          <h2 className="tracking-wider pl-16 py-6 d text-7xl drop-shadow-xl text-white font-homefont  whitespace-normal">
+          <h2 className="tracking-wider pl-16 py-6 d text-7xl drop-shadow-xl text-white  dark:text-slate-700 font-homefont  whitespace-normal">
             Make healthy life With <span className="text-green-500">fresh</span>{" "}
           </h2>
-          <h2 className="tracking-wider pl-16 py-6  text-7xl drop-shadow-xl text-white font-homefont ">
+          <h2 className="tracking-wider pl-16 py-6  text-7xl drop-shadow-xl text-white dark:text-slate-700 font-homefont ">
             grocery
           </h2>
 
-          <p className="pl-16 py-6  text-xl  text-white font-base">
+          <p className="pl-16 py-6  text-xl  text-white dark:text-slate-700 font-base">
             get the best quality and most delicious grocery and food{" "}
           </p>
         </div>
