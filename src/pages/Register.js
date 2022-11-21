@@ -4,11 +4,11 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 import AuthService from "../services/auth.service";
-
+import { Link } from "react-router-dom";
 const required = (value) => {
   if (!value) {
     return (
-      <div >
+      <div className="text-red-600 mb-2">
         This field is required!
       </div>
     );
@@ -18,7 +18,7 @@ const required = (value) => {
 const validEmail = (value) => {
   if (!isEmail(value)) {
     return (
-      <div className="" >
+      <div className="text-red-600 mb-2" >
         This is not a valid email.
       </div>
     );
@@ -28,7 +28,7 @@ const validEmail = (value) => {
 const vusername = (value) => {
   if (value.length < 3 || value.length > 20) {
     return (
-      <div >
+      <div className="text-red-600 mb-2" >
         The username must be between 3 and 20 characters.
       </div>
     );
@@ -38,7 +38,7 @@ const vusername = (value) => {
 const vpassword = (value) => {
   if (value.length < 6 || value.length > 40) {
     return (
-      <div >
+      <div className="text-red-600 mb-2">
         The password must be between 6 and 40 characters.
       </div>
     );
@@ -100,22 +100,18 @@ const Register = () => {
   };
 
   return (
-    <div >
-      <div >
-        <img
-          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-          alt="profile-img"
-          
-        />
-
+    <div className="lg:w-1/5 bg-slate-200 h-1/3 mt-32 m-auto shadow-lg">
+      <div className="py-2">
+        
+      <h2 className="text-center p-4  text-3xl font-homefont">Signup To <span className="text-blue-700">Ebasket</span> </h2>
         <Form onSubmit={handleRegister} ref={form}>
           {!successful && (
-            <div>
-              <div >
-                <label htmlFor="username">Username</label>
+            <div className="lg:mx-3">
+              <div className="lg:px-5">
+                <label htmlFor="username" className="py-3">Username</label>
                 <Input
                   type="text"
-                  className=""
+                  className="py-2 px-4 w-full my-4 shadow-md"
                   name="username"
                   value={username}
                   onChange={onChangeUsername}
@@ -123,11 +119,11 @@ const Register = () => {
                 />
               </div>
 
-              <div >
+              <div className="lg:px-5" >
                 <label htmlFor="email">Email</label>
                 <Input
                   type="text"
-                  className=""
+                  className="py-2 px-4 w-full my-4 shadow-md"
                   name="email"
                   value={email}
                   onChange={onChangeEmail}
@@ -135,11 +131,11 @@ const Register = () => {
                 />
               </div>
 
-              <div className="">
+              <div className="px-5">
                 <label htmlFor="password">Password</label>
                 <Input
                   type="password"
-                  className=""
+                  className="py-2 px-4 w-full my-4 shadow-md"
                   name="password"
                   value={password}
                   onChange={onChangePassword}
@@ -147,8 +143,11 @@ const Register = () => {
                 />
               </div>
 
-              <div className="">
-                <button className="">Sign Up</button>
+              <div className="px-5 my-4">
+                <button className="py-2 px-4 w-full mt-4 bg-blue-700 text-white hover:bg-blue-900">Sign Up</button>
+              </div>
+              <div className="px-5 my-4">
+                <span className="py-2 px-4 block w-full mt-4 text-center">Already have an Account? <Link to="/login" className="text-blue-600 hover:text-blue-700">Login</Link></span>
               </div>
             </div>
           )}

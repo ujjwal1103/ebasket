@@ -1,12 +1,19 @@
-import React from 'react'
+import {useState,useEffect} from 'react'
 import axios from 'axios'
 import AuthService from '../services/auth.service.js'
-
+import Modal from './Modal.js'
 
 const AddToCart = ({id,productQuantity,productPrice}) => {
+  
+  useEffect(() => {
+    let user = AuthService.getCurrentUser()
+    if(user){
+      setCurrentUser(user)
+    }
+  }, [])
 
- 
-   
+  const[currentUser,setCurrentUser] = useState()
+  const [modal, setModal] = useState(false);
   const addToCart = async(id,productQuantity,productPrice)=>{
     
     let user = AuthService.getCurrentUser()
@@ -18,8 +25,9 @@ const AddToCart = ({id,productQuantity,productPrice}) => {
         totalPrice:productQuantity * productPrice
       }
      
-      const res= await axios.post("http://localhost:8084/addtoCart",cartItem)
+      const res= await axios.post("http://localhost:8084/addtoCart",cartItem).catch(err=>alert("already in a cart"))
       if(res){
+       
         window.location.reload()
       }
     }
@@ -30,14 +38,20 @@ const AddToCart = ({id,productQuantity,productPrice}) => {
 
   return (
     <>
-    <button
+    {currentUser?(<button
             onClick={()=>{
+              
               addToCart(id,productQuantity,productPrice)
             }}
                         >
+                Add To Cart      
+    </button>):(<button
+               onClick={()=>setModal(true)}
+                        >
                       Add To Basket
-    </button>
-    
+    </button>)}
+     
+     {modal && <Modal setModal={setModal}/>}
   </>
   )
 }

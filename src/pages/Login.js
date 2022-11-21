@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
@@ -69,7 +69,7 @@ const Login = () => {
   };
 
   return (
-    <div className="w-1/3 bg-slate-200 h-1/3 mt-24 m-auto shadow-lg">
+    <div className="lg:w-1/5 bg-slate-200 h-1/3 mt-32 m-auto shadow-lg">
       <div className="py-2">
         {/* <img
           src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
@@ -110,6 +110,10 @@ const Login = () => {
               <span>Login</span>
             </button>
           </div>
+
+          <div className="px-5 my-4">
+                <span className="py-2 px-4 block w-full mt-4 text-center">Dont have an account? <Link to="/register" className="text-blue-600 hover:text-blue-700">Signup</Link></span>
+              </div>
 
           {message && (
             <div>

@@ -29,8 +29,8 @@ const BoardAdmin = () => {
   }, []);
 
   return (
-    <div className="bg-slate-50 w-screen h-auto" >
-        <AddProductPage content={content}/>
+    <div className="w-full flex items-center justify-center" >
+        <AddProductPage/>
     </div>
   );
 };

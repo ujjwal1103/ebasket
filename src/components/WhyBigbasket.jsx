@@ -4,10 +4,10 @@ import delivery from '../assets/delivery.png'
 import price from '../assets/bestprice.webp'
 const WhyBigbasket = () => {
   return (
-    <div className='m-2 flex  justify-between items-center'>
+    <div className='m-2 flex border border-blue-100 dark:border-slate-100 p-5  justify-between items-center'>
         
         <div className='flex flex-col items-center justify-center'>
-        <img src={delivery} alt="" className='w-24 h-24'/>
+        <img src={delivery} alt="" className='w-24 bg-white h-24'/>
           <h5 className='font-semibold my-2'>Superfast Delivery</h5>
            
         </div>

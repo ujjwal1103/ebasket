@@ -10,7 +10,7 @@ const Category = () => {
             </h2>
         </div>
 
-        <div className='flex justify-evenly items-center gap-5 p-4 mt-10 drop-shadow-lg'>
+        <div className='flex justify-evenly items-center gap-5 p-4 mt-10 drop-shadow-lg flex-wrap'>
             <Link to='/product' className='cursor-pointer text-center flex-col h-48 flex items-center justify-center bg-slate-400 w-52'>
                 <div>
                     <img src={allproduct} alt="" className="w-24 h-24 p-2 rounded-full bg-slate-200" />

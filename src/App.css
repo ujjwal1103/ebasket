@@ -1,3 +1,15 @@
 .height{
-    height: calc(100vh - 59px);
+    height: calc(100vh - 56px);
+    
+}
+.sidebar{
+    
+    height: calc(100vh - 57px);
+    box-shadow: 10px 10px 10 0 rgba(0, 0, 0, 1) ;
+    position: sticky;
+    top: 57px;
+    bottom: 0;
+}
+.adjust{
+    height: calc(100vh - 57px);
 }

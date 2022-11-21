@@ -5,8 +5,8 @@ import { options } from "../options";
 const EditProduct = ({setModal , currentProduct}) => {
   const [title, setTitle] = useState(currentProduct.title);
   const [price,setPrice] = useState(currentProduct.price);
-  const [quantity,setQuantity] = useState();
-  const [unit,setUnit] = useState();
+  const [quantity,setQuantity] = useState(0);
+  const [unit,setUnit] = useState(0);
   const [description, setDescription] = useState(currentProduct.description);
   const [category, setCategory] = useState(currentProduct.category);
   const [img, setImg] = useState(currentProduct.image);
@@ -16,6 +16,9 @@ const EditProduct = ({setModal , currentProduct}) => {
 
 
       const editProduct= async(e)=>{
+
+
+        
         e.preventDefault();
           let product = {
             title:title,
@@ -52,7 +55,7 @@ const EditProduct = ({setModal , currentProduct}) => {
 
 {/*Modal */}
 {/* <div className='flex '> */}
-<div className="rounded-lg z-50 fade fixed top-1/2 left-1/2 w-1/2 shadow-lg outline-none overflow-x-hidden overflow-y-auto bg-slate-400 -translate-y-1/2 -translate-x-1/2"
+<div className="rounded-lg z-50 fade fixed top-1/2 left-1/2 w-3/4 shadow-lg outline-none overflow-x-hidden overflow-y-auto bg-slate-400 -translate-y-1/2 -translate-x-1/2"
   id="exampleModalScrollable" tabIndex="-1" aria-labelledby="exampleModalScrollableLabel" aria-hidden="true">
         <div>
         <Form className="w-full p-4 " >
@@ -65,7 +68,7 @@ const EditProduct = ({setModal , currentProduct}) => {
             onChange={e=>setTitle(e.target.value)}
             
           />
-           <Form.Input fluid label="Price" placeholder="price" onChange={e=>setPrice(e.target.value)}/>
+           <Form.Input fluid label="Price" placeholder="price" value={price} onChange={e=>setPrice(e.target.value)}/>
         
         </Form.Group>
         <Form.Group widths="equal">
@@ -78,8 +81,8 @@ const EditProduct = ({setModal , currentProduct}) => {
             value={category}
             onChange={(result)=>setCategory(result.value)}
           />
-        <Form.Input fluid label="Quantity" placeholder="quantity" onChange={e=>setQuantity(e.target.value)}/>
-          <Form.Input fluid label="Unit" placeholder="unit" onChange={e=>setUnit(e.target.value)}/>
+        <Form.Input fluid label="Quantity" placeholder="quantity" value={quantity} onChange={e=>setQuantity(e.target.value)}/>
+          <Form.Input fluid label="Unit" placeholder="unit" value={unit} onChange={e=>setUnit(e.target.value)}/>
         </Form.Group>
         <div className="p-2 border bg-slate-500 rounded-md text-white mb-4 cursor-pointer">
           <label htmlFor="uploadImage" className="cursor-pointer">

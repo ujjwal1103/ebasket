@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {useDispatch, useSelector} from 'react-redux'
-import axios from "axios";
+import {MdDeleteForever} from 'react-icons/md'
+import {BiEdit} from 'react-icons/bi'
 
 import {deleteProduct, fetchProducts} from '../redux/actions/productActions'
 import EditProduct from "../components/EditProduct";
@@ -66,7 +67,7 @@ const Allproduct = ({query}) => {
                     scope="col"
                     className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                   >
-                    Action
+                   
                   </th>
                 </tr>
               </thead>
@@ -75,7 +76,7 @@ const Allproduct = ({query}) => {
                   return (
                     <tr
                       key={item.id + item.title}
-                      className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
+                      className=" bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100 group"
                     >
                       <td className=" text-gray-900 px-6 py-4 whitespace-wrap">
                         {index}
@@ -99,24 +100,24 @@ const Allproduct = ({query}) => {
                       <td className=" text-gray-900 px-6 py-4 whitespace-wrap">
                         {item.description}
                       </td>
-                      <td className=" text-gray-900 px-6 py-4 whitespace-wrap flex gap-2 items-center justify-center">
-                        <button
+                      <td className=" text-gray-900  px-6 py-4 flex gap-2 items-center justify-center h-full mt-5">
+                        <span
                           onClick={() => deleteItem(item.id)}
-                          className="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
+                          className="cursor-pointer opacity-0 text-4xl hover:text-red-700 group-hover:opacity-100"
                         >
-                          Delete{" "}
-                        </button>
-                        <button
+                         <MdDeleteForever/>
+                        </span>
+                        <span
                           onClick={() => {
                             setModal(true);
                             setcurrProduct(item);
                           }}
                           data-bs-toggle="modal"
                           data-bs-target="#exampleModalScrollable"
-                          className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                          className="cursor-pointer opacity-0 group-hover:opacity-100 text-4xl hover:text-blue-700"
                         >
-                          Edit{" "}
-                        </button>
+                        < BiEdit/>
+                        </span>
                       </td>
                     </tr>
                   );
