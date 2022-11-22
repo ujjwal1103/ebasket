@@ -26,10 +26,7 @@ const AddToCart = ({id,productQuantity,productPrice}) => {
       }
      
       const res= await axios.post("http://localhost:8084/addtoCart",cartItem).catch(err=>alert("already in a cart"))
-      if(res){
-       
-        window.location.reload()
-      }
+      
     }
 
 

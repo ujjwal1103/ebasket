@@ -7,14 +7,16 @@ import cart from "../assets/shopping-cart.png";
 import logo from "../assets/elogo.png";
 import { FiSearch } from "react-icons/fi";
 import axios from "axios";
-
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCart } from "../redux/actions/productActions";
 const Navbar = ({ setQuery, dark, setDark }) => {
   const [navbar, setNavbar] = useState(true);
   const navigate = useNavigate();
   const [showAdminBoard, setShowAdminBoard] = useState(false);
   const [currentUser, setCurrentUser] = useState(undefined);
   const [menuActive, setMenuActive] = useState(false);
-  const [cartItemsCount, setCartItemsCount] = useState(0);
+  const cartItems = useSelector((state) => state.cart.cart);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const user = AuthService.getCurrentUser();
@@ -22,9 +24,7 @@ const Navbar = ({ setQuery, dark, setDark }) => {
     if (user) {
       setCurrentUser(user);
       setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));
-      axios
-        .get(`http://localhost:8084/cartItemsByUserId/${user.id}`)
-        .then((res) => setCartItemsCount(res.data.length));
+      dispatch(fetchCart(user.id))
     }
 
     EventBus.on("logout", () => {
@@ -34,8 +34,10 @@ const Navbar = ({ setQuery, dark, setDark }) => {
     return () => {
       EventBus.remove("logout");
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    
+  }, [cartItems?.userId]);
+
+   
 
   const logOut = () => {
     AuthService.logout();
@@ -49,7 +51,7 @@ const Navbar = ({ setQuery, dark, setDark }) => {
     navigate("/product");
   };
   return (
-    <div className="lg:h-16 mt-0 bg-white dark:bg-gray-700 z-10 lg:flex flex  p-2 fixed w-full top-0 items-center border-b-2 dark:border-gray-800 drop-shadow-lg">
+    <div className="lg:h-16 mt-0 bg-white dark:bg-gray-700 z-50  lg:z-10 lg:flex flex  p-2 fixed w-full top-0 items-center border-b-2 dark:border-gray-800 drop-shadow-lg">
       {navbar && (
         <nav className="lg:flex  flex lg:items-center w-full lg:gap-0 gap-5 flex-col-reverse lg:flex-row mx-3 lg:justify-between">
           <Link
@@ -88,7 +90,7 @@ const Navbar = ({ setQuery, dark, setDark }) => {
                 <img src={cart} alt="" className="w-10" />
               </Link>
               <span className="absolute -top-1 -right-2 bg-blue-800 flex items-center justify-center rounded-full text-sm text-white w-5 h-5">
-                {cartItemsCount}
+               {cartItems?.length}
               </span>
             </div>
 

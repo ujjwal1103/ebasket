@@ -37,7 +37,7 @@ const App = () => {
      <Navbar setQuery={setQuery} setDark={setDark} dark={dark} />
 
       <Suspense fallback={<Loader />}>
-        <div className="flex  justify-start dark:bg-gray-800 bg-zinc-500 flex-col relative mt-14 w-full ">
+        <div className="flex  justify-start dark:bg-gray-800  flex-col relative mt-14 w-full ">
            
           <span
             className="hidden lg:block fixed top-20 left-80 z-50 text-white bg-blue-600 px-4 py-4 rounded-full text-2xl"

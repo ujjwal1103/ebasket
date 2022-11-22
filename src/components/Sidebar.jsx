@@ -1,23 +1,23 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { options } from "../options";
-import { GoTriangleLeft } from "react-icons/go";
+
 import { GiHamburgerMenu } from "react-icons/gi";
 const Sidebar = () => {
   const [open, setopen] = useState(true);
   return (
     <div
-      className={`bg-white  w-72  h-full top-16 fixed z-30 duration-300 ease-in-out ${open?"left-0":"-left-[200px]"}`} 
+      className={`bg-white  w-72  h-full lg:top-16 top-[135px] shadow-2xl fixed z-30 duration-300 ease-in-out ${open?"left-0 block":"-left-[180px] bg-transparent lg:bg-white "}`} 
     >
 
-      <div className=" py-4 px-4 flex justify-end  ">
-          <GiHamburgerMenu size={26} className="cursor-pointer"  onClick={()=>setopen(!open)}/>
+      <div className=" py-4 px-4 flex justify-end bg-white dark:bg-slate-800">
+          <GiHamburgerMenu size={26} className="cursor-pointer dark:text-white"  onClick={()=>setopen(!open)} />
       </div>
 
       <div
         className={`duration-300 lg:block lg:w-86 h-full dark:bg-slate-800`}
       >
-        <ul className={``}>
+        <ul className={`pl-5`}>
           <li className="pt-4">
             <Link
               to="/product"
@@ -44,16 +44,7 @@ const Sidebar = () => {
           })}
         </ul>
       </div>
-      <div className="h-24 bg-white absolute top-[40%] left- lg:hidden">
-        <button
-          className=" flex items-center justify-center w-full h-full "
-          onClick={() => {
-            setopen(!open);
-          }}
-        >
-          <GoTriangleLeft />
-        </button>
-      </div>
+      
     </div>
   );
 };

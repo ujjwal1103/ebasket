@@ -15,44 +15,44 @@ const Products = ({ query }) => {
   useEffect(() => {
 
     dispatch(fetchProductsByCategory(category));
-  }, [category,dispatch,query]);
+  }, []);
 
 
   
 
   return (
-    <div className="flex height  w-full">
+    <div className="flex  relative  w-full">
       
-      <Sidebar  />
-     <div
-        className="grid lg:grid-cols-4 mt-10 lg:mt-0 overflow-y-scroll gap-4  grid-flow-row lg:gap-8  lg:p-10  "
-        style={{ flex: 1 }}
-      >
+    <Sidebar  />
+   <div
+      className="grid lg:grid-cols-4  lg:mt-0  gap-4 overflow-y-scroll grid-flow-row lg:gap-8 lg:p-10 lg:ml-72 ml-16 mt-32 "
+      style={{ flex: 1 }}
+    >
 
-        
-
-        {products.length !== 0 ? (
-          products
-            ?.filter(
-              (item) =>
-                item.title.toLowerCase().includes(query) ||
-                item.category.toLowerCase().includes(query)
-            )
-            .map((pro, index) => {
-              return (
-                <Card pro={pro} key={pro.id}/>
-              );
-            })
-        ) : (
-          <div className="flex items-center justify-center text-2xl  w-screen">
-               <h2 className="text-center ">Items Not found</h2>       
-          </div>
-        )}
-        
-      </div>
       
-     
+
+      {products.length !== 0 ? (
+        products
+          ?.filter(
+            (item) =>
+              item.title.toLowerCase().includes(query) ||
+              item.category.toLowerCase().includes(query)
+          )
+          .map((pro, index) => {
+            return (
+              <Card pro={pro} key={pro.id}/>
+            );
+          })
+      ) : (
+        <div className="flex items-center justify-center  w-[1000px]">
+         Item Not Found
+        </div>
+      )}
+      
     </div>
+    
+   
+  </div>
   );
 };
 

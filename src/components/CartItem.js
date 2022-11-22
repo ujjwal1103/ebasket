@@ -1,10 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect,useCallback } from "react";
 import { IoMdRemoveCircleOutline } from "react-icons/io";
 import axios from "axios";
 const CartItem = ({ item }) => {
   const [product,setproduct] = useState()
-  const [qunatity,setQuantity] = useState(item.quantity)
-  useEffect(() => {
+  
+  useEffect(
+  
+  () => {
+    console.count()
     if (item.productId) {
       axios
         .get(`http://localhost:8084/product/${item.productId}`)
@@ -12,13 +15,13 @@ const CartItem = ({ item }) => {
           setproduct(res.data);
         });
     }
-  }, [item.productId]);
+  }, [product?.userId]);
 
-  
+  console.log(product)
 
   const deleteItem = async (id) => {
     await axios.delete(`http://localhost:8084/item/${id}`)
-    window.location.reload();
+    
   };
   return (
     <div className="flex mb-3 bg-white dark:bg-slate-700 gap-2 justify-between items-center p-2  border-y-2">

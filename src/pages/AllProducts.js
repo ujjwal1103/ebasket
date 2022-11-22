@@ -18,19 +18,16 @@ const AllProducts = ({ query }) => {
     dispatch(fetchProducts());
 
     
-  }, [dispatch]);
+  }, []);
 
   return ( 
     <div className="flex  relative  w-full">
       
       <Sidebar  />
      <div
-        className="grid lg:grid-cols-4 mt-10 lg:mt-0  gap-4 overflow-y-scroll grid-flow-row lg:gap-8 lg:p-10 lg:ml-72  "
+        className="grid lg:grid-cols-4  lg:mt-12  gap-4 overflow-y-scroll grid-flow-row lg:gap-8 lg:p-10 lg:ml-72 ml-16 mt-32 "
         style={{ flex: 1 }}
       >
-
-        
-
         {products.length !== 0 ? (
           products
             ?.filter(
