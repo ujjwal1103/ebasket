@@ -92,7 +92,9 @@ const Cart = () => {
       </div>
      {open && <div className="flex-col absolute opacity-100 w-[400px] h-[200px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-red-50 shadow-xl flex items-center justify-center">
         Congratulations your perchase has been done
-        <span onClick={()=>{deleteAll()}}> Close</span>
+        <span onClick={()=>{deleteAll()
+        setOpen(false)
+        window.location.reload()}}> Close</span>
       </div>}
     </div>
   );

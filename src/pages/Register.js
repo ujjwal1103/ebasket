@@ -106,7 +106,7 @@ const Register = () => {
       <h2 className="text-center p-4  text-3xl font-homefont">Signup To <span className="text-blue-700">Ebasket</span> </h2>
         <Form onSubmit={handleRegister} ref={form}>
           {!successful && (
-            <div className="lg:mx-3">
+            <div className="lg:mx-3 mx-6">
               <div className="lg:px-5">
                 <label htmlFor="username" className="py-3">Username</label>
                 <Input
@@ -131,7 +131,7 @@ const Register = () => {
                 />
               </div>
 
-              <div className="px-5">
+              <div className="lg:px-5 ">
                 <label htmlFor="password">Password</label>
                 <Input
                   type="password"
@@ -143,8 +143,8 @@ const Register = () => {
                 />
               </div>
 
-              <div className="px-5 my-4">
-                <button className="py-2 px-4 w-full mt-4 bg-blue-700 text-white hover:bg-blue-900">Sign Up</button>
+              <div className="lg:px-5 my-4 mx-6">
+                <button className="py-2 px-4 w-full mt-4 rounded bg-blue-700 text-white hover:bg-blue-900">Sign Up</button>
               </div>
               <div className="px-5 my-4">
                 <span className="py-2 px-4 block w-full mt-4 text-center">Already have an Account? <Link to="/login" className="text-blue-600 hover:text-blue-700">Login</Link></span>

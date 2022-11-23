@@ -33,6 +33,7 @@ const Navbar = ({ setQuery, dark, setDark }) => {
 
     return () => {
       EventBus.remove("logout");
+
     };
     
   }, [cartItems?.userId]);
@@ -163,7 +164,7 @@ const Navbar = ({ setQuery, dark, setDark }) => {
                 </li>
               </div>
             ) : (
-              <div className="flex  items-center ">
+              <div className="flex items-center ">
                 <ul className="flex gap-3 items-center justify-end dark:text-white ">
                   <li>
                     <Link to={"/login"} className="hover:text-gray-400">
@@ -172,7 +173,7 @@ const Navbar = ({ setQuery, dark, setDark }) => {
                   </li>
 
                   <li>
-                    <Link to={"/register"} className="hover:text-gray-400">
+                    <Link to={"/register"} className="hover:text-gray-400 hidden">
                       SignUp
                     </Link>
                   </li>
